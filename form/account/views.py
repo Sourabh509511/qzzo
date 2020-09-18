@@ -44,23 +44,10 @@ class LoginView(TokenObtainPairView):
         serializer = MyTokenObtainPairSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user=serializer.validated_data["user"]
-        # user= authenticate(username=request.data["Email"], password=request.data["password"])
         login(request,user)
         messages.success(request,f"Successfully logged In as {user}")
         user_data=User.objects.get(Email=request.data['Email'])
         return render(request,'home.html',{'data':user_data})
-
-# class loginView(View):
-#     def post(self,request):
-#         loginusername=request.POST.get('username')
-#         loginpassword=request.POST.get('password')
-#         if user is not None:
-#             login(request,user)
-#             messages.success(request,f"Successfully logged In as {user}")
-#             user_data=User.objects.get(Email=loginusername)
-#             return render(request,'home.html',{'data':user_data})
-#         messages.error(request,"Invalid Credentials!!!")
-#         return redirect("welcome")
 
 class logoutView(View):
     def get(self,request):
