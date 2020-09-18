@@ -43,8 +43,8 @@ class LoginView(TokenObtainPairView):
     def post(self,request):
         serializer = MyTokenObtainPairSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user=serializer.validated_data
-        user= authenticate(username=request.data["Email"], password=request.data["password"])
+        user=serializer.validated_data["user"]
+        # user= authenticate(username=request.data["Email"], password=request.data["password"])
         login(request,user)
         messages.success(request,f"Successfully logged In as {user}")
         user_data=User.objects.get(Email=request.data['Email'])
