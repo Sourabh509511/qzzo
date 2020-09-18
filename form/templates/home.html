@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+{% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'home/base/css/reset.css' %}"> <!-- CSS reset -->
+	<link rel="stylesheet" href="{% static 'home/base/css/style.css' %}"> <!-- Resource style -->
+	<script src="{% static 'home/base/js/modernizr.js' %}"></script> <!-- Modernizr -->
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<title>{% block title %}
+  {% endblock title %}</title>
+
+<style>
+.cd-primary-nav a, .cd-primary-nav ul a {
+	border-bottom: 1px solid ;
+}
+
+.btn-group, .btn-group-vertical {
+		margin-top:20px;
+}
+.btn-secondary {
+    color: #6c757d;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.cd-primary-nav a, .cd-primary-nav ul a {
+	    color: #545b62;
+}
+</style>
+<!-- Meta tags -->
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="keywords" content="Sign up & login Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design"
+         />
+      <script>
+         addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+      </script>
+      <!-- Meta tags -->
+      <!--stylesheets-->
+      <link href="{% static 'home/index/css/style.css' %}" rel='stylesheet' type='text/css' media="all">
+      <!--//style sheet end here-->
+      <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+
+      <style>
+      .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    line-height: 5.2;
+    }
+
+    #main{
+        background-image:url("{% static 'home/index/images/b.jpg' %}")
+    }
+      </style>
+</head>
+<body>
+	<header class="cd-main-header">
+		<a class="cd-logo" href="/">HOME</a>
+
+		<ul class="cd-header-buttons">
+			<li><a class="cd-search-trigger" href="#cd-search"><h4>Search</h4><span></span></a></li>
+			<li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
+</div>
+	</header>
+
+	 <main class="cd-main-content" id="main">
+		<!-- your content here -->
+		{% for message in messages %}
+			<div class="alert alert-{{ message.tags }} alert-dismissible fade show mb-0" role="alert">
+			<h1><strong>Message:</strong><h1><h2>{{message}}</h2>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+		{% endfor %}
+        {% if user.is_authenticated != True %}
+			<div class="mid-class">
+         <div class="art-right-w3ls">
+            <h2>Sign In and Sign Up</h2>
+            <form action="{% url 'login' %}" method="post">
+               {% csrf_token %}
+               <div class="main">
+                  <div class="form-left-to-w3l">
+                     <input type="text" name="Email" placeholder="Email" required="">
+                  </div>
+                  <div class="form-left-to-w3l ">
+                     <input type="password" name="password" placeholder="Password" required="" autocomplete="">
+                     <div class="clear"></div>
+                  </div>
+               </div>
+               <div class="left-side-forget">
+                  <input type="checkbox" class="checked">
+                  <span class="remenber-me">Remember me </span>
+               </div>
+               <div class="right-side-forget">
+                  <a href="#" class="for">Forgot password...?</a>
+               </div>
+               <div class="clear"></div>
+               <div class="btnn">
+                  <button type="submit">Sign In</button>
+               </div>
+            </form>
+            <div class="w3layouts_more-buttn">
+               <h3>Don't Have an account..?
+                  <a href="#content1">Sign Up Here
+                  </a>
+               </h3>
+            </div>
+            <!-- popup-->
+            <div id="content1" class="popup-effect">
+               <div class="popup">
+                  <!--login form-->
+                  <div class="letter-w3ls">
+                     <form action="{% url 'register' %}" method="post">
+                     {% csrf_token %}
+                        <div class="form-left-to-w3l">
+                           <input type="file" name="image" placeholder="Username(*should only contain letter and digits)" required="">
+                        </div><br>
+                        <div class="form-left-to-w3l">
+                           <input type="text" name="firstname" placeholder="First Name" required="">
+                        </div>
+                        <div class="form-left-to-w3l">
+                           <input type="text" name="lastname" placeholder="Last Name" required="">
+                        </div>
+                        <div class="form-left-to-w3l">
+                           <input type="text" name="age" placeholder="Age" required="">
+                        </div>
+                        <div class="form-left-to-w3l">
+                           <input type="text" name="un" placeholder="Unique id">
+                        </div>
+                        <div class="form-left-to-w3l">
+                           <input type="email" name="email" placeholder="Email" required="">
+                        </div>
+                        <div class="form-left-to-w3l">
+                           <input type="password" name="password1" placeholder="Password" required="" autocomplete="">
+                        </div>
+                        <div class="form-left-to-w3l margin-zero">
+                           <input type="password" name="password2" placeholder="Confirm Password" required="" autocomplete="">
+                        </div>
+                        <div class="btnn">
+                           <button type="submit">Sign Up</button>
+                           <br>
+                        </div>
+                     </form>
+                     {% endif %}
+                     {% if user.is_authenticated %}
+                     <div class="art-right-w3ls success">
+                        {% if data %}
+                                <span class="form-left-to-w3l">
+                                   <form>
+                                   {% csrf_token %}
+                                   <label>Image:</label><br>
+                                    <img src='/media/{{data.Image}}' align="center"><br>
+                                   <label>First Name:</label>
+                                    <input type='text' size="5" maxlength="5" value='{{data.First_name}}'>
+                                   <label>Last Name:</label>
+                                    <input type='text' size="5" maxlength="5" value='{{data.Last_name}}'>
+                                   <label>Age:</label>
+                                    <input type='text' size="5" maxlength="5" value='{{data.Age}}'>
+                                   <label>Unique Id:</label>
+                                    <input type='text' size="5" maxlength="5" value='{{data.Unique_id}}'>
+                                   </form>
+                                </span>
+                            {% endif %}
+                     </div>
+                     {% endif %}
+                     <div class="clear"></div>
+                  </div>
+                  <!--//login form-->
+                  <a class="close" href="#">&times;</a>
+               </div>
+            </div>
+            <!-- //popup -->
+         </div>
+      </div>
+		<div class="cd-overlay"></div>
+	</main>
+
+	<nav class="cd-nav">
+		<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Blogs</a></li>
+				<li><!-- Example split danger button -->
+				<div class="btn-group">
+					{% if user.is_authenticated %}
+						<button type="button" class="btn btn-secondary">{{request.user}}</button>
+						<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="sr-only"></span>
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="/logout">Logout</a>
+						</div>
+					{% endif %}
+				</div>
+		</ul> <!-- primary-nav -->
+	</nav> <!-- cd-nav -->
+
+	<div id="cd-search" class="cd-search">
+		<form action="/home/search" method="get">
+			<input type="search" name="search" placeholder="Search...">
+		</form>
+	</div>
+<script src="{%static 'home/base/js/jquery-2.1.1.js' %}"></script>
+<script src="{%static 'home/base/js/jquery.mobile.custom.min.js' %}"></script>
+<script src="{% static 'home/base/js/main.js' %}"></script> <!-- Resource jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+</html>
